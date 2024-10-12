@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
+import styles from "./page.module.css"
 import { Footer } from "@/components/Footer"
 import { Header } from "@/components/Header"
 import Head from "next/head"
@@ -33,7 +34,9 @@ export default function RootLayout({
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
-        {children}
+        <div className={styles.page}>
+          <main className={styles.main}>{children}</main>
+        </div>
         <Footer />
       </body>
     </html>
