@@ -5,7 +5,7 @@ import Link from "next/link"
 export const Header = () => {
   return (
     <header>
-      <div>
+      <div className="headerTopLevel">
         <Link href="/">
           <Image
             src="/logo.webp"
@@ -15,7 +15,7 @@ export const Header = () => {
           />
         </Link>
       </div>
-      header
+      <div className="headerNavigation">header</div>
     </header>
   )
 }
