@@ -15,7 +15,10 @@ export default async function ConditionPage(props: ConditionPageProps) {
       <h1>{condition}</h1>
       <HowItWorks />
       <h2>Ready?</h2>
-      <Link href={`/consultation/questions/${id}`} className="styledLink">
+      <Link
+        href={`/consultation/questions/${id}?condition=${condition}`}
+        className="styledLink"
+      >
         Start consultation
       </Link>
     </div>
