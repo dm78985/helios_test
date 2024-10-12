@@ -8,9 +8,7 @@ export const Footer = () => {
         This has no affiliation with the brands included. This is purely for
         practise.
       </div>
-      <div>
-        <Navigation />
-      </div>
+      <Navigation />
     </footer>
   )
 }

@@ -16,9 +16,7 @@ export const Header = () => {
           />
         </Link>
       </div>
-      <div className="headerNavigation">
-        <Navigation />
-      </div>
+      <Navigation />
     </header>
   )
 }

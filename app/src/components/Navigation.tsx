@@ -11,9 +11,13 @@ export const Navigation = () => {
     { displayName: "Treatments", url: "/treatments" },
   ]
 
-  return navigationLinks.map((navigationLink, index) => (
-    <Link href={navigationLink.url} key={`${navigationLink.url}_${index}`}>
-      {navigationLink.displayName}
-    </Link>
-  ))
+  return (
+    <ul>
+      {navigationLinks.map((navigationLink, index) => (
+        <li key={`${navigationLink.url}_${index}`}>
+          <Link href={navigationLink.url}>{navigationLink.displayName}</Link>
+        </li>
+      ))}
+    </ul>
+  )
 }
