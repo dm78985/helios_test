@@ -25,7 +25,7 @@ export default async function ConsultationPage(props: ConsultationPageProps) {
       <h1>Consultation for {props.searchParams.condition}</h1>
       <QuestionRenderer
         questions={questions}
-        submissionEndpoint={"/api/consultation/questions/"}
+        submissionEndpoint={`/api/consultation/submissions/${props.searchParams.condition}`}
         id={props.params.id}
       />
     </div>

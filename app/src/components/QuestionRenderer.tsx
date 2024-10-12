@@ -31,13 +31,13 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
   }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    fetch(
-      `${siteDefinition.originUrl}${props.submissionEndpoint}/${props.id}`,
-      { method: "POST", body: JSON.stringify(answers) },
-    )
+    fetch(`${siteDefinition.originUrl}${props.submissionEndpoint}`, {
+      method: "POST",
+      body: JSON.stringify({ answers, id: props.id }),
+    })
       .then((response) => {
-        if (!response.ok) {
-          router.push(`/consultation/submission/error`)
+        if (!response.ok || response.status !== 201) {
+          return router.push(`/consultation/submission/error`)
         }
         router.push(`/consultation/submission/success`)
       })
