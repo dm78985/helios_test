@@ -1,0 +1,7 @@
+.styledLink {
+  padding: 16px;
+  border: 1px solid orange;
+  border-radius: 1px;
+  display: center;
+  justify-content: center;
+}
