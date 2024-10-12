@@ -1,4 +1,5 @@
 import "@/styles/footer.css"
+import { Navigation } from "./Navigation"
 
 export const Footer = () => {
   return (
@@ -7,7 +8,9 @@ export const Footer = () => {
         This has no affiliation with the brands included. This is purely for
         practise.
       </div>
-      <div>Navigation</div>
+      <div>
+        <Navigation />
+      </div>
     </footer>
   )
 }

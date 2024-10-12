@@ -1,6 +1,7 @@
 import "@/styles/Header.css"
 import Image from "next/image"
 import Link from "next/link"
+import { Navigation } from "./Navigation"
 
 export const Header = () => {
   return (
@@ -15,7 +16,9 @@ export const Header = () => {
           />
         </Link>
       </div>
-      <div className="headerNavigation">header</div>
+      <div className="headerNavigation">
+        <Navigation />
+      </div>
     </header>
   )
 }
