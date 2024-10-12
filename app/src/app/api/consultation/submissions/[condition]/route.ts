@@ -1,7 +1,5 @@
-import type { NextApiRequest } from "next"
-
 export async function POST(
-  req: NextApiRequest,
+  req: Request,
   { params }: { params: { [parameter: string]: string | undefined } },
 ) {
   if (!params.condition) {
