@@ -2,8 +2,8 @@
 
 import React from "react"
 import { Question } from "@/types"
-import { redirect } from "next/navigation"
 import siteDefinition from "@/siteDefinition.json"
+import { useRouter } from "next/navigation"
 
 interface QuestionRendererProps {
   questions: Question[]
@@ -16,10 +16,10 @@ export type Answers = { [question: string]: string }
 export const QuestionRenderer = (props: QuestionRendererProps) => {
   const [highestVisibleQuestion, setHighestVisibleQuestion] = React.useState(0)
   const [answers, setAnswers] = React.useState<Answers>({})
+  const router = useRouter()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    console.log("handling change", name, value)
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [name]: value,
@@ -36,15 +36,13 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
       { method: "POST", body: JSON.stringify(answers) },
     )
       .then((response) => {
-        console.log("response ok", response.ok)
         if (!response.ok) {
-          redirect(`${siteDefinition.originUrl}/consultation/submission/error`)
+          router.push(`/consultation/submission/error`)
         }
-        redirect(`${siteDefinition.originUrl}/consultation/submission/success`)
+        router.push(`/consultation/submission/success`)
       })
-      .catch((e) => {
-        console.log("error", e)
-        redirect("/consultation/submission/error")
+      .catch(() => {
+        router.push(`/consultation/submission/error`)
       })
   }
 
