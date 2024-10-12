@@ -1,5 +1,10 @@
 export interface Question {
   value: string
+  type: QuestionType
+}
+
+export enum QuestionType {
+  RADIO,
 }
 
 export interface ConditionToQuestions {
