@@ -4,7 +4,7 @@ export interface Question {
 }
 
 export enum QuestionType {
-  RADIO,
+  RADIO = "radio",
 }
 
 export interface ConditionToQuestions {

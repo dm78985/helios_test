@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import siteDefinition from "@/siteDefinition.json"
+import { QuestionRenderer } from "@/components/QuestionRenderer"
 
 interface ConsultationPageProps {
   params: { [parameter: string]: string }
@@ -22,7 +23,7 @@ export default async function ConsultationPage(props: ConsultationPageProps) {
   return (
     <div>
       <h1>Consultation for {props.searchParams.condition}</h1>
-      <Questions questions={questions} />
+      <QuestionRenderer questions={questions} />
     </div>
   )
 }
