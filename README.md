@@ -2,6 +2,7 @@
 
 - Node version = 20.18.0
 - Install yarn `npm install -g yarn`
+- `cd app`
 - `yarn install`
 - `yarn start`
 
