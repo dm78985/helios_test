@@ -23,7 +23,11 @@ export default async function ConsultationPage(props: ConsultationPageProps) {
   return (
     <div>
       <h1>Consultation for {props.searchParams.condition}</h1>
-      <QuestionRenderer questions={questions} />
+      <QuestionRenderer
+        questions={questions}
+        submissionEndpoint={"/api/consultation/questions/"}
+        id={props.params.id}
+      />
     </div>
   )
 }
