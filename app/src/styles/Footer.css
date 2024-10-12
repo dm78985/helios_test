@@ -1,0 +1,12 @@
+footer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+@media (min-width: 426px) {
+  footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
