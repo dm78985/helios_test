@@ -1,8 +1,7 @@
-import type { NextApiRequest } from "next"
 import { conditionToQuestions } from "./questions"
 
 export async function GET(
-  _req: NextApiRequest,
+  _req: Request,
   { params }: { params: { [parameter: string]: string | undefined } },
 ) {
   if (!params.condition) {
