@@ -1,4 +1,4 @@
-import "@/styles/footer.css"
+import "@/styles/Footer.css"
 import { Navigation } from "./Navigation"
 
 export const Footer = () => {
