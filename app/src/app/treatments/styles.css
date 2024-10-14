@@ -1,0 +1,11 @@
+.treatments {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.treatment {
+  padding: 16px;
+  border: 2px solid orange;
+  cursor: pointer;
+}
