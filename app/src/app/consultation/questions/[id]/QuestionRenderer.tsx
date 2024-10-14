@@ -60,7 +60,6 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
                 key={`question_${index}`}
                 onChangeCallback={handleChange}
               />
-              ,
             </div>,
           )
 

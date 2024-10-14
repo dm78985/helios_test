@@ -37,6 +37,7 @@ export default function Question(props: QuestionProps) {
     case QuestionType.TEXT: {
       return (
         <input
+          required
           type={props.question.type}
           id={props.question.name}
           name={props.question.name}

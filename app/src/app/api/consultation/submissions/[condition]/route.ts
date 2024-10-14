@@ -11,6 +11,9 @@ export async function POST(
     return new Response(null, { status: 404 })
   }
 
-  console.log("data to send to api", requestBody)
+  console.log(
+    `data to send to api for condition ${params.condition} = `,
+    requestBody,
+  )
   return new Response(null, { status: 201 })
 }
