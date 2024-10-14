@@ -4,6 +4,7 @@ import React from "react"
 import { Question as QuestionType } from "@/types"
 import siteDefinition from "@/siteDefinition.json"
 import { useRouter } from "next/navigation"
+import "./styles.css"
 import Question from "./Question"
 
 interface QuestionRendererProps {
@@ -53,7 +54,7 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
             return questionsToShow
           }
           questionsToShow.push(
-            <div key={`question_${index}`}>
+            <div key={`question_${index}`} className="questionContainer">
               <label htmlFor={question.name}>{question.value}</label>
               <Question
                 question={question}

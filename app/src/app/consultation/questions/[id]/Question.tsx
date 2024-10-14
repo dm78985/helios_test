@@ -2,6 +2,7 @@
 
 import React from "react"
 import { Question as QuestionInterface, QuestionType } from "@/types"
+import "./styles.css"
 
 interface QuestionProps {
   question: QuestionInterface
@@ -12,26 +13,30 @@ export default function Question(props: QuestionProps) {
   switch (props.question.type) {
     case QuestionType.RADIO: {
       return (
-        <React.Fragment>
-          <label htmlFor="yes">Yes</label>
+        <div className="radioButtonContainer">
           <input
             type={props.question.type}
             name={props.question.name}
             required
-            id="yes"
+            id={`${props.question.name}_yes`}
             value="yes"
             onChange={props.onChangeCallback}
           />
-          <label htmlFor="no">No</label>
+          <label htmlFor={`${props.question.name}_yes`} className="radioButton">
+            Yes
+          </label>
           <input
             type={props.question.type}
             name={props.question.name}
             required
-            id="no"
+            id={`${props.question.name}_no`}
             value="no"
             onChange={props.onChangeCallback}
           />
-        </React.Fragment>
+          <label htmlFor={`${props.question.name}_no`} className="radioButton">
+            No
+          </label>
+        </div>
       )
     }
     case QuestionType.TEXT: {
