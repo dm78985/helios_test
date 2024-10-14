@@ -53,11 +53,15 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
             return questionsToShow
           }
           questionsToShow.push(
-            <Question
-              question={question}
-              key={`question_${index}`}
-              onChangeCallback={handleChange}
-            />,
+            <div key={`question_${index}`}>
+              <label htmlFor={question.name}>{question.value}</label>
+              <Question
+                question={question}
+                key={`question_${index}`}
+                onChangeCallback={handleChange}
+              />
+              ,
+            </div>,
           )
 
           return questionsToShow

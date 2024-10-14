@@ -30,6 +30,11 @@ export const conditionToQuestions: Record<Conditions, Question[]> = {
   ],
   [Conditions.BEET_ALLERGY]: [
     {
+      value: "Who is your favourite character from the office?",
+      type: QuestionType.TEXT,
+      name: "favouriteCharacter",
+    },
+    {
       value: "Are you pregnant or trying to conceive?",
       type: QuestionType.RADIO,
       name: "pregnant",

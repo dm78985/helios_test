@@ -1,10 +1,10 @@
 "use client"
 
+import React from "react"
 import { Question as QuestionInterface, QuestionType } from "@/types"
 
 interface QuestionProps {
   question: QuestionInterface
-  key: string
   onChangeCallback: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -12,8 +12,7 @@ export default function Question(props: QuestionProps) {
   switch (props.question.type) {
     case QuestionType.RADIO: {
       return (
-        <div key={props.key}>
-          <h3>{props.question.value}</h3>
+        <React.Fragment>
           <label htmlFor="yes">Yes</label>
           <input
             type={props.question.type}
@@ -32,7 +31,17 @@ export default function Question(props: QuestionProps) {
             value="no"
             onChange={props.onChangeCallback}
           />
-        </div>
+        </React.Fragment>
+      )
+    }
+    case QuestionType.TEXT: {
+      return (
+        <input
+          type={props.question.type}
+          id={props.question.name}
+          name={props.question.name}
+          onChange={props.onChangeCallback}
+        />
       )
     }
     default: {
