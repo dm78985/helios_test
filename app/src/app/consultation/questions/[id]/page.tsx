@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import siteDefinition from "@/siteDefinition.json"
-import { QuestionRenderer } from "@/components/QuestionRenderer"
+import { QuestionRenderer } from "./QuestionRenderer"
 
 interface ConsultationPageProps {
   params: { [parameter: string]: string }
