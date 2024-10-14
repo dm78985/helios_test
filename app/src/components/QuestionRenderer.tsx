@@ -20,12 +20,10 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [name]: value,
-    }))
+    answers[name] = value
+    setAnswers(answers)
 
-    if (highestVisibleQuestion < props.questions.length) {
+    if (Object.keys(answers).length > highestVisibleQuestion) {
       setHighestVisibleQuestion(highestVisibleQuestion + 1)
     }
   }
