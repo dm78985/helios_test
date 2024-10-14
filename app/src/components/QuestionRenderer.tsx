@@ -35,12 +35,12 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
     })
       .then((response) => {
         if (!response.ok || response.status !== 201) {
-          return router.push(`/consultation/submission/error`)
+          return router.push("/consultation/submission/error")
         }
-        router.push(`/consultation/submission/success`)
+        router.push("/consultation/submission/success")
       })
       .catch(() => {
-        router.push(`/consultation/submission/error`)
+        router.push("/consultation/submission/error")
       })
   }
 
