@@ -1,12 +1,13 @@
 "use client"
 
 import React from "react"
-import { Question } from "@/types"
+import { Question as QuestionType } from "@/types"
 import siteDefinition from "@/siteDefinition.json"
 import { useRouter } from "next/navigation"
+import Question from "./Question"
 
 interface QuestionRendererProps {
-  questions: Question[]
+  questions: QuestionType[]
   submissionEndpoint: string
   id: string
 }
@@ -52,28 +53,13 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
             return questionsToShow
           }
           questionsToShow.push(
-            <div key={`question_${index}`}>
-              <h3>{question.value}</h3>
-              <label htmlFor="yes">Yes</label>
-              <input
-                type={question.type}
-                name={question.name}
-                required
-                id="yes"
-                value="yes"
-                onChange={handleChange}
-              />
-              <label htmlFor="no">No</label>
-              <input
-                type={question.type}
-                name={question.name}
-                required
-                id="no"
-                value="no"
-                onChange={handleChange}
-              />
-            </div>,
+            <Question
+              question={question}
+              key={`question_${index}`}
+              onChangeCallback={handleChange}
+            />,
           )
+
           return questionsToShow
         },
         [],
