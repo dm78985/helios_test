@@ -1,12 +1,13 @@
 "use client"
 
 import React from "react"
-import { Question } from "@/types"
+import { Question as QuestionType } from "@/types"
 import siteDefinition from "@/siteDefinition.json"
 import { useRouter } from "next/navigation"
+import { Question } from "./Question"
 
 interface QuestionRendererProps {
-  questions: Question[]
+  questions: QuestionType[]
   submissionEndpoint: string
   id: string
 }
@@ -20,12 +21,12 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [name]: value,
-    }))
+    answers[name] = value
+    setAnswers(answers)
 
-    if (highestVisibleQuestion < props.questions.length) {
+    console.log("answers", answers)
+    console.log("highestVisibleQuestion", highestVisibleQuestion)
+    if (Object.keys(answers).length > highestVisibleQuestion) {
       setHighestVisibleQuestion(highestVisibleQuestion + 1)
     }
   }
@@ -46,6 +47,7 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
       })
   }
 
+  const totalNumberQuestions = props.questions.length
   return (
     <form onSubmit={handleSubmit}>
       {props.questions.reduce<React.ReactNode[]>(
@@ -55,25 +57,10 @@ export const QuestionRenderer = (props: QuestionRendererProps) => {
           }
           questionsToShow.push(
             <div key={`question_${index}`}>
-              <h3>{question.value}</h3>
-              <label htmlFor="yes">Yes</label>
-              <input
-                type={question.type}
-                name={question.name}
-                required
-                id="yes"
-                value="yes"
-                onChange={handleChange}
-              />
-              <label htmlFor="no">No</label>
-              <input
-                type={question.type}
-                name={question.name}
-                required
-                id="no"
-                value="no"
-                onChange={handleChange}
-              />
+              <h3>
+                Question {index + 1}/{totalNumberQuestions}: {question.value}
+              </h3>
+              <Question question={question} onChangeCallback={handleChange} />
             </div>,
           )
           return questionsToShow

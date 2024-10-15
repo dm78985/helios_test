@@ -3,6 +3,11 @@ import { Conditions, ConditionToQuestions, QuestionType } from "@/types"
 export const conditionToQuestions: ConditionToQuestions = {
   [Conditions.GENOVIAN_PEAR]: [
     {
+      value: "How tall are you?",
+      type: QuestionType.NUMBER,
+      name: "height",
+    },
+    {
       value: "Are you between the ages of 18 and 74?",
       type: QuestionType.RADIO,
       name: "ageRange",
